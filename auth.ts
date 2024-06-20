@@ -63,6 +63,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   callbacks: {
     jwt({ token, user }) {
+      console.log(user)
       if (user) {
         cookies().set("Authorization", (user as { token: string }).token);
         token.id = (user as { token: string }).token;
